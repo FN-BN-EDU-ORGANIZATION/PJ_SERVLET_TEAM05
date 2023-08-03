@@ -62,7 +62,7 @@ public class BoardServiceImpl implements BoardService{
 		return Bdao.search_title(title);
 	}
 
-	// 글 등록하기(회원)
+	// 글 등록하기
 	public int boardAdd(BoardDto dto) throws Exception {
 		System.out.println("BoardService's boardAdd()");
 
@@ -110,13 +110,13 @@ public class BoardServiceImpl implements BoardService{
 		return false;
 	}
 
-	@Override
-	public boolean boardsearch_mine(BoardDto dto) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
+//	@Override
+//	public boolean boardsearch_mine(BoardDto dto) throws Exception {
+//		// TODO Auto-generated method stub
+//		return false;
+//	}
+//
+//
 //	@Override
 //	public List<CommentDto> Commentselect(CommentDto dto) throws Exception {
 //		// TODO Auto-generated method stub

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Controller.board.BoardAddController;
 import Controller.board.BoardDeleteController;
+import Controller.board.BoardListController;
 import Controller.board.BoardSearchController;
 import Controller.board.BoardUpdateController;
 import Controller.member.MemberAddController;
@@ -33,8 +34,9 @@ public class FrontController extends HttpServlet {
 //		board
 		map.put(projectPath + "/board/search.do", new BoardSearchController());
 		map.put(projectPath + "/board/delete.do", new BoardDeleteController());
-		map.put(projectPath + "/board/add.do", new BoardAddController());
+		map.put(projectPath + "/add.do", new BoardAddController());
 		map.put(projectPath + "/board/update.do", new BoardUpdateController());
+		map.put(projectPath + "/list.do", new BoardListController());
 
 //		member
 		map.put(projectPath + "/member/search.do", new MemberSearchController());
@@ -45,15 +47,15 @@ public class FrontController extends HttpServlet {
 //		member.auth
 		map.put(projectPath + "/login.do", new LoginController());
 		map.put(projectPath + "/logout.do", new LogoutController());
-		
-		 // Mypage
-        map.put(projectPath + "/mypage.do", new MemberPageController());
+
+		// Mypage
+		map.put(projectPath + "/member/mypage.do", new MemberPageController());
 
 //		main
 		map.put(projectPath + "/main.do", new MainController());
-		
-		//Join
-        map.put(projectPath + "/register.do", new JoinController());
+
+		// Join
+		map.put(projectPath + "/register.do", new JoinController());
 	}
 
 	@Override
