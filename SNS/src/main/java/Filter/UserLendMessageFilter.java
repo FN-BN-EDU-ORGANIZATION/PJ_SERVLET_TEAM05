@@ -11,12 +11,10 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import Domain.Common.Dao.LendMessageDao;
-import Domain.Common.Dao.LendMessageDaoImpl;
-import Domain.Common.Dto.LendMessageDto;
+
 
 public class UserLendMessageFilter implements Filter{
-	private LendMessageDao msgDao = LendMessageDaoImpl.getInstance();
+//	private LendMessageDao msgDao = LendMessageDaoImpl.getInstance();
 	
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -32,11 +30,8 @@ public class UserLendMessageFilter implements Filter{
 			try {
 				
 				
-				List<LendMessageDto> list =  msgDao.select(userid);
-				if(list.size()!=0) {
-					session.setAttribute("alarm_cnt", list.size());
-					session.setAttribute("alarm_list", list);
-				}
+				
+				
 							
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

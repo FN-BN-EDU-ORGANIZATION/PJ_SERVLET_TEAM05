@@ -1,9 +1,8 @@
 package Controller.member;
 
-import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -41,7 +40,7 @@ public class MemberPageController implements SubController {
 		// -------------------------------------------------------------------
 		// post 요청 처리
 		try {
-			System.out.println("멤버페이지컨트롤의 get req들어옴");
+			System.out.println("멤버페이지컨트롤의 GET 들어옴");
 			HttpSession session = req.getSession();
 			String role = (String) session.getAttribute("ROLE");
 			System.out.println("session: " + role);
@@ -62,6 +61,27 @@ public class MemberPageController implements SubController {
 				req.setAttribute("posts", posts);
 				req.getRequestDispatcher("/WEB-INF/view/member/mypage.jsp").forward(req, resp);
 			}
+
+			if(req.getMethod().equals("POST"))
+			{
+				System.out.println("/mypage.do POST 진입");
+				Integer no = Integer.parseInt(req.getParameter("boardNumber"));
+				String contents = req.getParameter("contents");
+				System.out.printf("NO : %d CONTENTS : %s\n",no,contents);
+				BoardDto dto = new BoardDto();
+				dto.setNumber(no);
+				dto.setContents(contents);
+				boolean isUpdate = service.boardUpdate(dto,null, 0);
+				
+				if(isUpdate) {
+					PrintWriter out = resp.getWriter();
+					out.write("와우!!UPDATE성공!");
+					
+				}
+				
+			}
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

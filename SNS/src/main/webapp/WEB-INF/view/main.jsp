@@ -50,11 +50,15 @@ table>tr>th {
 </style>
 </head>
 <body class="scroll">
-
+	<div>
+		<a href="${pageContext.request.contextPath}/logout.do">로그아웃</a>
+	</div>
 	<h1>
 		<a href="/WeSee/">WeSee</a>
 	</h1>
 
+	
+	
 	<div>
 		<button style="border: none; background-color: white;">
 			<img src="Resource/Bell.png">
@@ -92,9 +96,8 @@ table>tr>th {
 	<c:if test="${not empty boardList}">
 
 		<c:forEach var="board" items="${boardList}">
-			<div
-				style="display: flex; justify-content: space-evenly; margin-top: 30px;">
-				<table style="width: 400px; height: 650px; background-color: black;">
+			<div style="display: flex;  flex-wrap:wrap;  justify-content: center; margin-top: 30px;">
+				<table style="width: 400px; height: 650px; background-color: black;margin:20px;">
 					<tr style="width: 400px; height: 20px;">
 						<th style="display: flex; color: white;">
 							<div>

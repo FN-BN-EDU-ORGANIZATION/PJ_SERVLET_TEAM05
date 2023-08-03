@@ -73,19 +73,8 @@ public class BoardServiceImpl implements BoardService{
 	// 글 수정하기
 	public boolean boardUpdate(BoardDto dto, String sid, int number) throws Exception {
 		System.out.println("BoardService's boardupdate()");
+		return Bdao.update(dto)>0;
 
-//		// 멤버서비스에서 role(권한-회원인지아닌지) 정보를 가져옴
-//		String role = memberService.getRole(sid);
-//		Session session = (Session) memberService.sessionMap.get(sid);
-//
-//		Map<String, Object> results = memberService.login("id", "pw");
-//
-//		if (session.getId().equals(dto.getId()) || role == "MASTER") {
-//			int result = Bdao.update(dto);
-//			if (result > 0)
-//				return true;
-//		}
-		return false;
 	}
 
 	// 글 삭제하기
